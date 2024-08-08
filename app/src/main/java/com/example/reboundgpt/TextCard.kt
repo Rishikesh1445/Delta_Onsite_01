@@ -18,6 +18,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -66,27 +67,25 @@ fun TextCardRight(text: String, options:Boolean, viewModel: viewModel){
                 if(options) {
                     Row(
                         horizontalArrangement = Arrangement.End,
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth().padding(0.dp,0.dp,16.dp,0.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
                         IconButton(onClick = { viewModel.copyButton(text, context) }) {
-                            Row(modifier = Modifier.fillMaxWidth()) {
-                                Icon(
-                                    imageVector = Icons.Default.Add,
-                                    contentDescription = "copy",
-                                    tint = Color.White
-                                )
-                            }
+                            Icon(
+                                imageVector = Icons.Default.Add,
+                                contentDescription = "copy",
+                                tint = Color.White
+                            )
                         }
+                        Text(text = "Copy", fontSize = 15.sp)
                         IconButton(onClick = { viewModel.retryButton() }) {
-                            Row(modifier = Modifier.fillMaxWidth()) {
-                                Icon(
-                                    imageVector = Icons.Default.Refresh,
-                                    contentDescription = "retry",
-                                    tint = Color.White
-                                )
-
-                            }
+                            Icon(
+                                imageVector = Icons.Default.Refresh,
+                                contentDescription = "retry",
+                                tint = Color.White
+                            )
                         }
+                        Text(text = "Retry", fontSize = 15.sp)
                     }
                 }
             }
@@ -101,7 +100,7 @@ fun TextCardLeft(text: String){
             .fillMaxWidth()
             .padding(0.dp, 10.dp, 25.dp, 10.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.LightGray)
+        colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Text(text = text, color = Color.Black, fontSize = 15.sp, fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(12.dp))

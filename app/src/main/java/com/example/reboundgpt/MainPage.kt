@@ -15,10 +15,13 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Send
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.ExitToApp
 import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -62,8 +65,8 @@ fun MainPage(viewModel: viewModel){
     val navControllerUser = rememberNavController()
 
     val navItems = listOf(
-        NavigationItem(title = "Dummy1",route = "", selectedIcon = Icons.Filled.Person, unselectedIcon = Icons.Outlined.Person),
-        NavigationItem(title = "Dummy2",route = "", selectedIcon = Icons.Filled.ExitToApp, unselectedIcon = Icons.Outlined.ExitToApp),
+        NavigationItem(title = "Don't Touch",route = "", selectedIcon = Icons.Filled.Person, unselectedIcon = Icons.Outlined.Person),
+        NavigationItem(title = "Don't Touch",route = "", selectedIcon = Icons.Filled.ExitToApp, unselectedIcon = Icons.Outlined.ExitToApp),
     )
 
     ModalNavigationDrawer(
@@ -104,7 +107,15 @@ fun MainPage(viewModel: viewModel){
                         ) {
                             Icon(imageVector = Icons.Default.Menu, contentDescription = null, tint = Color.White)
                         }
-                    })
+                    }, actions = {
+                        IconButton(onClick = { /*TODO*/ }) {
+                            Icon(imageVector = Icons.Outlined.Star, contentDescription = null)
+                        }
+                        IconButton(onClick = { /*TODO*/ }) {
+                            Icon(imageVector = Icons.Default.MoreVert, contentDescription = null)
+                        }
+                    }
+                )
             },
 
             ){
