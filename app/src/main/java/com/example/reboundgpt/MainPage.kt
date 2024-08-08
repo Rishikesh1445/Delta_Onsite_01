@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Menu
@@ -114,11 +115,11 @@ fun MainPage(viewModel: viewModel){
 
                 LazyColumn(contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)){
-                    items(viewModel.toDisplay.value.texts){text->
-                        if(text.text.isNotBlank()){
-                            if(text.isLast){ TextCardRight(text = text.text, true, viewModel) }
-                            else{ TextCardRight(text = text.text, false, viewModel) }
-                            TextCardLeft(text = text.text)
+                    itemsIndexed(viewModel.toDisplay.value.texts){index, text->
+                        if(text.isNotBlank()){
+                            if(index == viewModel.toDisplay.value.texts.lastIndex){ TextCardRight(text = text, true, viewModel) }
+                            else{ TextCardRight(text = text, false, viewModel) }
+                            TextCardLeft(text = text)
                         }
                     }
                 }
